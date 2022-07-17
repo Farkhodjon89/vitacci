@@ -1,0 +1,80 @@
+
+.order {
+  .text-block{
+    width: 100%;
+    padding: 15px 10px;
+    h4 {
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  .success-text {
+    border: 2px dashed $theme-color;
+    h4 {
+      color: $theme-color;
+    }
+  }
+  @media (min-width: 768px) {
+    .b-r {
+      border-right: 1.5px solid #eeeff8 !important;
+    }
+  }
+
+  .b-r {
+    border-right: 1.5px solid #eeeff8;
+  }
+
+  .b-r-none {
+    border-right: none;
+  }
+
+  .b-b {
+    border-bottom: 1.5px solid #eeeff8;
+  }
+
+  .additional-text {
+    border: 2px dashed $theme-red;
+    h4 {
+      color: $theme-color;
+    }
+  }
+
+  .order-info {
+    text-align: center;
+    h4 {
+      color: $theme-grey;
+      font-size: 20px;
+      font-family: ArsenalRegular;
+    }
+    span {
+      color: $theme-grey;
+      font-size: 18px;
+    }
+  }
+
+  .detailed-info {
+    .title {
+      width: 100%;
+      h2 {
+        text-transform: uppercase;
+        text-align: center;
+      }
+    }
+  }
+
+  .order-item {
+    width: 100%;
+    h5 {
+      font-family: ArsenalRegular;
+      font-size: 16px;
+    }
+  }
+
+  .meta-info {
+    h4 {
+      font-family: ArsenalRegular;
+      text-transform: capitalize;
+    }
+  }
+}
