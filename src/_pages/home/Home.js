@@ -12,27 +12,24 @@ const Home = () => {
       <MetaTags>
         <title>Vitacci</title>
         <meta
-          name="description"
-          content="Electronics home of flone react minimalist eCommerce template."
+          name='description'
+          content='Electronics home of flone react minimalist eCommerce template.'
         />
       </MetaTags>
 
-      <Layout headerPaddingClass="header-padding-1" headerTop="visible">
+      <Layout headerPaddingClass='header-padding-1' headerTop='visible'>
         <MainSlider />
-
         <HomeProductsGrid
-          spaceTopClass="pt-80"
-          spaceBottomClass="pb-60"
-          category="electronics"
-          sectionTitle="Хиты продаж"
+          spaceTopClass='pt-80'
+          spaceBottomClass='pb-60'
+          category='electronics'
+          sectionTitle='Хиты продаж'
         />
-
         <HomeProductsGrid
-          spaceBottomClass="pb-60"
-          category="electronics"
-          sectionTitle="Товары на скидке"
+          spaceBottomClass='pb-60'
+          category='electronics'
+          sectionTitle='Товары на скидке'
         />
-
         <AdsBanner />
       </Layout>
     </Fragment>

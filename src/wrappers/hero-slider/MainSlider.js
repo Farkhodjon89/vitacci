@@ -1,9 +1,9 @@
-import React from 'react'
-import Swiper from 'react-id-swiper'
-import MainSliderSingle from './MainSliderSingle'
-import NoSsr from '../../components/NoSsr'
-import useWindowDimensions from '../../components/useWindowDimensions'
-import Link from 'next/link'
+import React from 'react';
+import Swiper from 'react-id-swiper';
+import MainSliderSingle from './MainSliderSingle';
+import NoSsr from '../../components/NoSsr';
+import useWindowDimensions from '../../components/useWindowDimensions';
+import Link from 'next/link';
 
 const MainSlider = () => {
   const params = {
@@ -29,11 +29,21 @@ const MainSlider = () => {
         <i className='pe-7s-angle-right' />
       </button>
     ),
-  }
+  };
 
   const sliderData = [
     {
       id: 1,
+      image: `${process.env.PUBLIC_URL}/banners/slider2/sale-50.jpg`,
+      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/sale-50-mob.jpg`,
+      url: '/catalog',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    },
+    {
+      id: 2,
       image: `${process.env.PUBLIC_URL}/banners/slider2/sale.jpg`,
       mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/slider-mob2.jpg`,
       url: '/catalog',
@@ -43,7 +53,7 @@ const MainSlider = () => {
       buttonTitle: 'Подробнее',
     },
     {
-      id: 2,
+      id: 3,
       image: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay.jpg`,
       mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay-mob.jpg`,
       url: '/installment',
@@ -52,7 +62,7 @@ const MainSlider = () => {
       subtitle: '',
       buttonTitle: 'Подробнее',
     },
-  ]
+  ];
 
   return (
     <div className='slider-area'>
@@ -71,7 +81,7 @@ const MainSlider = () => {
         </NoSsr>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainSlider
+export default MainSlider;
