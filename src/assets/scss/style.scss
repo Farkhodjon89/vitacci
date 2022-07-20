@@ -55,11 +55,10 @@
   }
 }
 .zoodpay-price {
-  
   background: #ffcc00;
   color: black !important;
   padding: 0 6px;
-  font-size: 15px ;
+  font-size: 15px;
 }
 .zoodpay-info {
   width: 19px;
@@ -81,20 +80,19 @@
       visibility: visible;
     }
   }
-    .zoodpay-content {
-      line-height: 16px;
-      position: absolute;
-      top: 27px;
-      color: black;
-      font-size: 10px;
-      padding: 5px;
-      width: 185px;
-      background: #fff;
-      box-shadow: black 0px 4px 17px -10px;
-      visibility: hidden;
-      transition: 0.5s;
-    }
-  
+  .zoodpay-content {
+    line-height: 16px;
+    position: absolute;
+    top: 27px;
+    color: black;
+    font-size: 10px;
+    padding: 5px;
+    width: 185px;
+    background: #fff;
+    box-shadow: black 0px 4px 17px -10px;
+    visibility: hidden;
+    transition: 0.5s;
+  }
 }
 .categories-check {
   font-family: 'ArsenalRegular';
@@ -430,6 +428,7 @@ i.fab {
 
 .swiper-container {
   width: 100% !important;
+  max-width: 1200px !important;
 }
 
 .swiper-wrapper {
