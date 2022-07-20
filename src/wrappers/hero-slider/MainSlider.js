@@ -35,7 +35,7 @@ const MainSlider = () => {
     {
       id: 1,
       image: `${process.env.PUBLIC_URL}/banners/slider2/sale-50.jpg`,
-      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/sale-50-mob.jpg`,
+      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/sale-50-mob.png`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -44,18 +44,8 @@ const MainSlider = () => {
     },
     {
       id: 2,
-      image: `${process.env.PUBLIC_URL}/banners/slider2/sale.jpg`,
-      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/slider-mob2.jpg`,
-      url: '/catalog',
-      color: 'white',
-      title: '',
-      subtitle: '-50% на всю летнюю коллекцию',
-      buttonTitle: 'Подробнее',
-    },
-    {
-      id: 3,
       image: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay.jpg`,
-      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay-mob.jpg`,
+      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay-mob.png`,
       url: '/installment',
       color: 'white',
       title: '',
