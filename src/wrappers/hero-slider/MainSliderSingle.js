@@ -3,22 +3,13 @@ import React, {useState,useEffect} from 'react';
 import Link from 'next/link';
 import useWindowDimensions from '../../components/useWindowDimensions';
 
-const MainSliderSingle = ({data, sliderClass}) => {
-  const {width} = useWindowDimensions();
-  const [windowWidth, setWindowWidth] = useState()
-  let resizeWindow = () => setWindowWidth(window.innerWidth)
-  useEffect(() => {
-    resizeWindow()
-    window.addEventListener('resize', resizeWindow)
-    return () => window.removeEventListener('resize', resizeWindow)
-  }, [])
- 
+const MainSliderSingle = ({data, sliderClass, backgroundImage}) => {
     return (<div
       className={`single-slider-2 slider-height-2 d-flex align-items-center bg-img ${
           sliderClass ? sliderClass : ''
       }`}
       style={{
-        backgroundImage: `url(${windowWidth <= 770 ? data.mobileImage : data.image})`
+        backgroundImage: `url(${backgroundImage})`,
       }}>
         
     <div className="container h-100">

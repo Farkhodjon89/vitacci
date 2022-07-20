@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 import Swiper from 'react-id-swiper';
 import MainSliderSingle from './MainSliderSingle';
 import NoSsr from '../../components/NoSsr';
-import useWindowDimensions from '../../components/useWindowDimensions';
-import Link from 'next/link';
+import MainSliderMobileSingle from "./MainSliderMobileSingle";
 
 const MainSlider = () => {
+  const [windowWidth, setWindowWidth] = useState()
+  useLayoutEffect(() => {
+    const resizeWindow = () => setWindowWidth(window.innerWidth)
+    resizeWindow()
+    window.addEventListener('resize', resizeWindow)
+    return () => window.removeEventListener('resize', resizeWindow)
+  }, [])
+
+  console.log(windowWidth, 'windowWidth')
   const params = {
     effect: 'fade',
     loop: true,
@@ -33,9 +41,8 @@ const MainSlider = () => {
 
   const sliderData = [
     {
-      id: 1,
+      id: 'first-image',
       image: `${process.env.PUBLIC_URL}/banners/slider2/sale-50.jpg`,
-      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/sale-50-mob.png`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -43,31 +50,68 @@ const MainSlider = () => {
       buttonTitle: 'Подробнее',
     },
     {
-      id: 2,
+      id: 'second-image',
       image: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay.jpg`,
-      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay-mob.png`,
       url: '/installment',
       color: 'white',
       title: '',
       subtitle: '',
       buttonTitle: 'Подробнее',
-    },
+    }
   ];
+
+  const sliderDataMobile = [
+    {
+      id: 'first-image',
+      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/sale-50-mob.jpg`,
+      url: '/catalog',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    },
+    {
+      id: 'second-image',
+      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay-mob.jpg`,
+      url: '/installment',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    }
+  ];
+
 
   return (
     <div className='slider-area'>
       <div className='slider-active nav-style-1'>
         <NoSsr>
-          <Swiper {...params}>
-            {sliderData &&
-              sliderData.map((single, key) => (
-                <MainSliderSingle
-                  key={key}
-                  data={single}
-                  sliderClass='swiper-slide'
-                />
-              ))}
-          </Swiper>
+          {
+            windowWidth <= 770 ? (
+              <Swiper {...params}>
+                {sliderDataMobile.map((data, idx) => (
+                  <MainSliderSingle
+                    key={idx}
+                    data={data}
+                    backgroundImage={data.mobileImage}
+                    sliderClass='swiper-slide'
+                  />
+                ))}
+              </Swiper>
+            ) : (
+              <Swiper {...params}>
+                {sliderData.map((data, idx) => (
+                  <MainSliderMobileSingle
+                    key={idx}
+                    data={data}
+                    backgroundImage={data.image}
+                    sliderClass='swiper-slide'
+                  />
+                ))
+                }
+              </Swiper>
+            )
+          }
         </NoSsr>
       </div>
     </div>
