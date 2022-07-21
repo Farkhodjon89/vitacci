@@ -1,4 +1,4 @@
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Swiper from 'react-id-swiper';
 import MainSliderSingle from './MainSliderSingle';
 import NoSsr from '../../components/NoSsr';
@@ -6,7 +6,7 @@ import MainSliderMobileSingle from "./MainSliderMobileSingle";
 
 const MainSlider = () => {
   const [windowWidth, setWindowWidth] = useState()
-  useLayoutEffect(() => {
+  useEffect(() => {
     const resizeWindow = () => setWindowWidth(window.innerWidth)
     resizeWindow()
     window.addEventListener('resize', resizeWindow)
@@ -63,7 +63,7 @@ const MainSlider = () => {
   const sliderDataMobile = [
     {
       id: 'first-image',
-      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/sale-50-mob.jpg`,
+      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/sale-50.jpg`,
       url: '/catalog',
       color: 'white',
       title: '',
