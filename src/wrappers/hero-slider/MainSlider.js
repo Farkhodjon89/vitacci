@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import Swiper from 'react-id-swiper';
-import MainSliderSingle from './MainSliderSingle';
-import NoSsr from '../../components/NoSsr';
-import MainSliderMobileSingle from "./MainSliderMobileSingle";
+import React, { useEffect, useState } from 'react'
+import Swiper from 'react-id-swiper'
+import MainSliderSingle from './MainSliderSingle'
+import NoSsr from '../../components/NoSsr'
+import MainSliderMobileSingle from './MainSliderMobileSingle'
 
 const MainSlider = () => {
   const [windowWidth, setWindowWidth] = useState()
@@ -37,12 +37,12 @@ const MainSlider = () => {
         <i className='pe-7s-angle-right' />
       </button>
     ),
-  };
+  }
 
   const sliderData = [
     {
-      id: 'first-image',
-      image: `${process.env.PUBLIC_URL}/banners/slider2/sale-50.jpg`,
+      id: 'frist-image',
+      image: `${process.env.PUBLIC_URL}/banners/new.jpg`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -57,13 +57,13 @@ const MainSlider = () => {
       title: '',
       subtitle: '',
       buttonTitle: 'Подробнее',
-    }
-  ];
+    },
+  ]
 
   const sliderDataMobile = [
     {
-      id: 'first-image',
-      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/sale-50.jpg`,
+      id: 'frist-image',
+      mobileImage: `${process.env.PUBLIC_URL}/banners/newMob.jpg`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -78,44 +78,40 @@ const MainSlider = () => {
       title: '',
       subtitle: '',
       buttonTitle: 'Подробнее',
-    }
-  ];
-
+    },
+  ]
 
   return (
     <div className='slider-area'>
       <div className='slider-active nav-style-1'>
         <NoSsr>
-          {
-            windowWidth <= 770 ? (
-              <Swiper {...params}>
-                {sliderDataMobile.map((data, idx) => (
-                  <MainSliderSingle
-                    key={idx}
-                    data={data}
-                    backgroundImage={data.mobileImage}
-                    sliderClass='swiper-slide'
-                  />
-                ))}
-              </Swiper>
-            ) : (
-              <Swiper {...params}>
-                {sliderData.map((data, idx) => (
-                  <MainSliderMobileSingle
-                    key={idx}
-                    data={data}
-                    backgroundImage={data.image}
-                    sliderClass='swiper-slide'
-                  />
-                ))
-                }
-              </Swiper>
-            )
-          }
+          {windowWidth <= 770 ? (
+            <Swiper {...params}>
+              {sliderDataMobile.map((data, idx) => (
+                <MainSliderSingle
+                  key={idx}
+                  data={data}
+                  backgroundImage={data.mobileImage}
+                  sliderClass='swiper-slide'
+                />
+              ))}
+            </Swiper>
+          ) : (
+            <Swiper {...params}>
+              {sliderData.map((data, idx) => (
+                <MainSliderMobileSingle
+                  key={idx}
+                  data={data}
+                  backgroundImage={data.image}
+                  sliderClass='swiper-slide'
+                />
+              ))}
+            </Swiper>
+          )}
         </NoSsr>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MainSlider;
+export default MainSlider
