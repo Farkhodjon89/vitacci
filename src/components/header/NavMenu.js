@@ -55,7 +55,7 @@ const NavMenu = ({ menuWhiteClass, sidebarMenu, categories }) => {
       <nav>
         <ul>
           <li>
-            <Link href={'/catalog'}>
+            <Link href={'/catalog?filter_onSale=true'}>
               <a className="red">Скидки</a>
             </Link>
           </li>
