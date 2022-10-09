@@ -1,16 +1,32 @@
-import gql from 'graphql-tag';
-
-import { ProductCategoriesFragment } from '../fragments/categories';
+import gql from 'graphql-tag'
 
 const GET_CATEGORIES_QUERY = gql`
-  query {
-    productCategories(first: 50) {
+  query MyQuery {
+    productCategories(where: { hideEmpty: true }, first: 100) {
       nodes {
-        ...ProductCategories
+        databaseId
+        name
+        slug
+        parent {
+          node {
+            slug
+            parent {
+              node {
+                slug
+              }
+            }
+          }
+        }
+        children(first: 100, where: { hideEmpty: true }) {
+          nodes {
+            databaseId
+            name
+            slug
+          }
+        }
       }
     }
   }
-  ${ProductCategoriesFragment}
-`;
+`
 
-export default GET_CATEGORIES_QUERY;
+export default GET_CATEGORIES_QUERY

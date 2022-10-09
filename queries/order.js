@@ -1,5 +1,4 @@
-import gql from 'graphql-tag';
-import { ProductCategoriesFragment } from '../fragments/categories';
+import gql from 'graphql-tag'
 
 export const ORDER_DATA = gql`
   query Order($id: ID!) {
@@ -20,4 +19,4 @@ export const ORDER_DATA = gql`
       }
     }
   }
-`;
+`

@@ -16,6 +16,7 @@ import { StaticDataSingleton } from '../utils/getStaticData'
 import { PRODUCTS_FOR_CATALOG } from '../../queries/dataForCatalog'
 
 const Home = ({ products, saleProducts, categories, posts }) => {
+  console.log('categories', categories)
   const { width } = useWindowDimensions()
 
   const newArrivals = [
@@ -40,6 +41,8 @@ const Home = ({ products, saleProducts, categories, posts }) => {
       title: 'СУМКИ',
     },
   ]
+
+  console.log('categories', categories)
 
   return (
     <Fragment>

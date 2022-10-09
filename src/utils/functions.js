@@ -1,7 +1,7 @@
-import { v4 } from 'uuid';
-import { StaticDataSingleton } from './getStaticData';
-import striptags from 'striptags';
-import format from 'string-template';
+import { v4 } from 'uuid'
+import { StaticDataSingleton } from './getStaticData'
+import striptags from 'striptags'
+import format from 'string-template'
 
 /**
  * Extracts and returns float value from a string.
@@ -10,9 +10,11 @@ import format from 'string-template';
  * @return {any}
  */
 export const getFloatVal = (string) => {
-  let floatValue = string.match(/[+-]?\d+(\.\d+)?/g)[0];
-  return null !== floatValue ? parseFloat(parseFloat(floatValue).toFixed(2)) : '';
-};
+  let floatValue = string.match(/[+-]?\d+(\.\d+)?/g)[0]
+  return null !== floatValue
+    ? parseFloat(parseFloat(floatValue).toFixed(2))
+    : ''
+}
 
 /**
  * Add first product.
@@ -21,21 +23,21 @@ export const getFloatVal = (string) => {
  * @return {{totalProductsCount: number, totalProductsPrice: any, products: Array}}
  */
 export const addFirstProduct = (product) => {
-  let productPrice = getFloatVal(product.price);
+  let productPrice = getFloatVal(product.price)
 
   let newCart = {
     products: [],
     totalProductsCount: 1,
     totalProductsPrice: productPrice,
-  };
+  }
 
-  const newProduct = createNewProduct(product, productPrice, 1);
-  newCart.products.push(newProduct);
+  const newProduct = createNewProduct(product, productPrice, 1)
+  newCart.products.push(newProduct)
 
-  localStorage.setItem('woo-next-cart', JSON.stringify(newCart));
+  localStorage.setItem('woo-next-cart', JSON.stringify(newCart))
 
-  return newCart;
-};
+  return newCart
+}
 
 /**
  * Create a new product object.
@@ -53,8 +55,8 @@ export const createNewProduct = (product, productPrice, qty) => {
     price: productPrice,
     qty,
     totalPrice: parseFloat((productPrice * qty).toFixed(2)),
-  };
-};
+  }
+}
 
 /**
  * Updates the existing cart with new item.
@@ -65,29 +67,39 @@ export const createNewProduct = (product, productPrice, qty) => {
  * @param {Integer} newQty New Qty to be updated.
  * @return {{totalProductsCount: *, totalProductsPrice: *, products: *}}
  */
-export const updateCart = (existingCart, product, qtyToBeAdded, newQty = false) => {
-  const updatedProducts = getUpdatedProducts(existingCart.products, product, qtyToBeAdded, newQty);
+export const updateCart = (
+  existingCart,
+  product,
+  qtyToBeAdded,
+  newQty = false
+) => {
+  const updatedProducts = getUpdatedProducts(
+    existingCart.products,
+    product,
+    qtyToBeAdded,
+    newQty
+  )
 
   const addPrice = (total, item) => {
-    total.totalPrice += item.totalPrice;
-    total.qty += item.qty;
+    total.totalPrice += item.totalPrice
+    total.qty += item.qty
 
-    return total;
-  };
+    return total
+  }
 
   // Loop through the updated product array and add the totalPrice of each item to get the totalPrice
-  let total = updatedProducts.reduce(addPrice, { totalPrice: 0, qty: 0 });
+  let total = updatedProducts.reduce(addPrice, { totalPrice: 0, qty: 0 })
 
   const updatedCart = {
     products: updatedProducts,
     totalProductsCount: parseInt(total.qty),
     totalProductsPrice: parseFloat(total.totalPrice),
-  };
+  }
 
-  localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart));
+  localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart))
 
-  return updatedCart;
-};
+  return updatedCart
+}
 
 /**
  * Get updated products array
@@ -104,30 +116,37 @@ export const getUpdatedProducts = (
   existingProductsInCart,
   product,
   qtyToBeAdded,
-  newQty = false,
+  newQty = false
 ) => {
   // Check if the product already exits in the cart.
-  const productExitsIndex = isProductInCart(existingProductsInCart, product.productId);
+  const productExitsIndex = isProductInCart(
+    existingProductsInCart,
+    product.productId
+  )
 
   // If product exits ( index of that product found in the array ), update the product quantity and totalPrice
   if (-1 < productExitsIndex) {
-    let updatedProducts = existingProductsInCart;
-    let updatedProduct = updatedProducts[productExitsIndex];
+    let updatedProducts = existingProductsInCart
+    let updatedProduct = updatedProducts[productExitsIndex]
 
     // If have new qty of the product available, set that else add the qtyToBeAdded
-    updatedProduct.qty = newQty ? parseInt(newQty) : parseInt(updatedProduct.qty + qtyToBeAdded);
-    updatedProduct.totalPrice = parseFloat((updatedProduct.price * updatedProduct.qty).toFixed(2));
+    updatedProduct.qty = newQty
+      ? parseInt(newQty)
+      : parseInt(updatedProduct.qty + qtyToBeAdded)
+    updatedProduct.totalPrice = parseFloat(
+      (updatedProduct.price * updatedProduct.qty).toFixed(2)
+    )
 
-    return updatedProducts;
+    return updatedProducts
   } else {
     // If product not found push the new product to the existing product array.
-    let productPrice = getFloatVal(product.price);
-    const newProduct = createNewProduct(product, productPrice, qtyToBeAdded);
-    existingProductsInCart.push(newProduct);
+    let productPrice = getFloatVal(product.price)
+    const newProduct = createNewProduct(product, productPrice, qtyToBeAdded)
+    existingProductsInCart.push(newProduct)
 
-    return existingProductsInCart;
+    return existingProductsInCart
   }
-};
+}
 
 /**
  * Returns index of the product if it exists.
@@ -139,15 +158,15 @@ export const getUpdatedProducts = (
 const isProductInCart = (existingProductsInCart, productId) => {
   const returnItemThatExits = (item, index) => {
     if (productId === item.productId) {
-      return item;
+      return item
     }
-  };
+  }
 
   // This new array will only contain the product which is matched.
-  const newArray = existingProductsInCart.filter(returnItemThatExits);
+  const newArray = existingProductsInCart.filter(returnItemThatExits)
 
-  return existingProductsInCart.indexOf(newArray[0]);
-};
+  return existingProductsInCart.indexOf(newArray[0])
+}
 
 /**
  * Remove Item from the cart.
@@ -156,83 +175,85 @@ const isProductInCart = (existingProductsInCart, productId) => {
  * @return {any | string} Updated cart
  */
 export const removeItemFromCart = (productId) => {
-  let existingCart = localStorage.getItem('woo-next-cart');
-  existingCart = JSON.parse(existingCart);
+  let existingCart = localStorage.getItem('woo-next-cart')
+  existingCart = JSON.parse(existingCart)
 
   // If there is only one item in the cart, delete the cart.
   if (1 === existingCart.products.length) {
-    localStorage.removeItem('woo-next-cart');
-    return null;
+    localStorage.removeItem('woo-next-cart')
+    return null
   }
 
   // Check if the product already exits in the cart.
-  const productExitsIndex = isProductInCart(existingCart.products, productId);
+  const productExitsIndex = isProductInCart(existingCart.products, productId)
 
   // If product to be removed exits
   if (-1 < productExitsIndex) {
-    const productTobeRemoved = existingCart.products[productExitsIndex];
-    const qtyToBeRemovedFromTotal = productTobeRemoved.qty;
-    const priceToBeDeductedFromTotal = productTobeRemoved.totalPrice;
+    const productTobeRemoved = existingCart.products[productExitsIndex]
+    const qtyToBeRemovedFromTotal = productTobeRemoved.qty
+    const priceToBeDeductedFromTotal = productTobeRemoved.totalPrice
 
     // Remove that product from the array and update the total price and total quantity of the cart
-    let updatedCart = existingCart;
-    updatedCart.products.splice(productExitsIndex, 1);
-    updatedCart.totalProductsCount = updatedCart.totalProductsCount - qtyToBeRemovedFromTotal;
-    updatedCart.totalProductsPrice = updatedCart.totalProductsPrice - priceToBeDeductedFromTotal;
+    let updatedCart = existingCart
+    updatedCart.products.splice(productExitsIndex, 1)
+    updatedCart.totalProductsCount =
+      updatedCart.totalProductsCount - qtyToBeRemovedFromTotal
+    updatedCart.totalProductsPrice =
+      updatedCart.totalProductsPrice - priceToBeDeductedFromTotal
 
-    localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart));
-    return updatedCart;
+    localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart))
+    return updatedCart
   } else {
-    return existingCart;
+    return existingCart
   }
-};
+}
 
 /**
  * Returns cart data in the required format.
  * @param {String} data Cart data
  */
 export const getFormattedCart = (data) => {
-  let formattedCart = null;
+  let formattedCart = null
 
   if (undefined === data || !data.cart.contents.nodes.length) {
-    return formattedCart;
+    return formattedCart
   }
 
-  const givenProducts = data.cart.contents.nodes;
+  const givenProducts = data.cart.contents.nodes
 
   // Create an empty object.
-  formattedCart = {};
-  formattedCart.products = [];
-  let totalProductsCount = 0;
+  formattedCart = {}
+  formattedCart.products = []
+  let totalProductsCount = 0
 
   for (let i = 0; i < givenProducts.length; i++) {
-    const givenProduct = givenProducts[i].product;
-    const product = {};
-    const total = getFloatVal(givenProducts[i].total);
+    const givenProduct = givenProducts[i].product
+    const product = {}
+    const total = getFloatVal(givenProducts[i].total)
 
-    product.productId = givenProduct.productId;
-    product.cartKey = givenProducts[i].key;
-    product.name = givenProduct.name;
-    product.qty = givenProducts[i].quantity;
-    product.price = total / product.qty;
-    product.totalPrice = givenProducts[i].total;
+    product.productId = givenProduct.productId
+    product.cartKey = givenProducts[i].key
+    product.name = givenProduct.name
+    product.qty = givenProducts[i].quantity
+    product.price = total / product.qty
+    product.totalPrice = givenProducts[i].total
     product.image = {
       sourceUrl: givenProduct.image.sourceUrl,
       srcSet: givenProduct.image.srcSet,
       title: givenProduct.image.title,
-    };
+    }
 
-    totalProductsCount += givenProducts[i].quantity;
+    totalProductsCount += givenProducts[i].quantity
 
     // Push each item into the products array.
-    formattedCart.products.push(product);
+    formattedCart.products.push(product)
   }
 
-  formattedCart.totalProductsCount = totalProductsCount;
-  formattedCart.totalProductsPrice = data.cart.total;
+  formattedCart.totalProductsCount = totalProductsCount
+  formattedCart.totalProductsPrice = data.cart.total
 
-  return formattedCart;
-};
+  return formattedCart
+}
 
 export const createCheckoutData = (order) => {
   const checkoutData = {
@@ -268,10 +289,10 @@ export const createCheckoutData = (order) => {
     paymentMethod: order.paymentMethod,
     isPaid: false,
     transactionId: 'hjkhjkhsdsdiui',
-  };
+  }
 
-  return checkoutData;
-};
+  return checkoutData
+}
 
 /**
  * Get the updated items in the below format required for mutation input.
@@ -286,7 +307,7 @@ export const createCheckoutData = (order) => {
  */
 export const getUpdatedItems = (products, newQty, cartKey) => {
   // Create an empty array.
-  const updatedItems = [];
+  const updatedItems = []
 
   // Loop through the product array.
   products.map((cartItem) => {
@@ -295,92 +316,98 @@ export const getUpdatedItems = (products, newQty, cartKey) => {
       updatedItems.push({
         key: cartItem.cartKey,
         quantity: parseInt(newQty),
-      });
+      })
 
       // Otherwise just push the existing qty without updating.
     } else {
       updatedItems.push({
         key: cartItem.cartKey,
         quantity: cartItem.qty,
-      });
+      })
     }
-  });
+  })
 
   // Return the updatedItems array with new Qtys.
-  return updatedItems;
-};
+  return updatedItems
+}
 
 export const formatPrice = (
   number,
   floatingDigits = 0,
   splitBy = 3,
   splitter = ' ',
-  floatingSplitter = '.',
+  floatingSplitter = '.'
 ) => {
-  const re = `\\d(?=(\\d{${splitBy}})+${floatingDigits > 0 ? '\\D' : '$'})`;
+  const re = `\\d(?=(\\d{${splitBy}})+${floatingDigits > 0 ? '\\D' : '$'})`
   const num = (typeof number === 'number' ? number : parseInt(number)).toFixed(
-    Math.max(0, ~~floatingDigits),
-  );
+    Math.max(0, ~~floatingDigits)
+  )
 
   return (floatingSplitter ? num.replace('.', floatingSplitter) : num).replace(
     new RegExp(re, 'g'),
-    `$&${splitter}`,
-  );
-};
+    `$&${splitter}`
+  )
+}
 
 export const formatMeta = (metaData) =>
-  metaData.reduce((acc, curr) => ({ ...acc, [curr.key]: curr.value }), {});
+  metaData.reduce((acc, curr) => ({ ...acc, [curr.key]: curr.value }), {})
 
-export const reformatPrice = (price) => price.split('UZS')[0].split(',').join('');
+export const reformatPrice = (price) =>
+  price.split('UZS')[0].split(',').join('')
 
 const parseWooPrice = (wooProduct) => {
-  let price;
-  let salePrice;
-  let regularPrice;
+  let price
+  let salePrice
+  let regularPrice
 
   if (wooProduct.price == null) {
     return {
       price: 0,
       salePrice: null,
       regularPrice: null,
-    };
+    }
   }
 
   if (wooProduct.price.includes(' - ')) {
-    const [_price, _regularPrice] = wooProduct.price.split(' - ');
+    const [_price, _regularPrice] = wooProduct.price.split(' - ')
 
-    price = parseInt(reformatPrice(_price));
-    salePrice = parseInt(reformatPrice(_price));
-    regularPrice = parseInt(reformatPrice(_regularPrice));
+    price = parseInt(reformatPrice(_price))
+    salePrice = parseInt(reformatPrice(_price))
+    regularPrice = parseInt(reformatPrice(_regularPrice))
   } else {
-    price = parseInt(reformatPrice(wooProduct.price));
-    salePrice = parseInt(reformatPrice(wooProduct.price));
-    regularPrice = parseInt(reformatPrice(wooProduct.regularPrice));
+    price = parseInt(reformatPrice(wooProduct.price))
+    salePrice = parseInt(reformatPrice(wooProduct.price))
+    regularPrice = parseInt(reformatPrice(wooProduct.regularPrice))
   }
 
   return {
     price: isNaN(price) ? 0 : price,
     salePrice: isNaN(salePrice) ? null : salePrice,
     regularPrice: isNaN(regularPrice) ? null : regularPrice,
-  };
-};
+  }
+}
 
 const formatVariation = (wooVariation) => {
-  const { price, salePrice, regularPrice } = parseWooPrice(wooVariation);
+  const { price, salePrice, regularPrice } = parseWooPrice(wooVariation)
 
-  const meta = formatMeta(wooVariation.metaData);
+  const meta = formatMeta(wooVariation.metaData)
 
-  const tempStores = [];
-  let stockStores = meta._billz_wp_sync_offices ? JSON.parse(meta._billz_wp_sync_offices) : null;
+  const tempStores = []
+  let stockStores = meta._billz_wp_sync_offices
+    ? JSON.parse(meta._billz_wp_sync_offices)
+    : null
 
   if (stockStores) {
     for (const store of stockStores) {
       if (tempStores.find((x) => x.officeID === store.officeID) == null) {
-        const hasStore = tempStores.find((x) => x.officeID === 867);
-        const hasHelen = tempStores.find((x) => x.officeID === 1889);
+        const hasStore = tempStores.find((x) => x.officeID === 867)
+        const hasHelen = tempStores.find((x) => x.officeID === 1889)
 
-        if ((!hasStore && store.officeID !== 1889) || (!hasHelen && store.officeID !== 867)) {
-          tempStores.push(store);
+        if (
+          (!hasStore && store.officeID !== 1889) ||
+          (!hasHelen && store.officeID !== 867)
+        ) {
+          tempStores.push(store)
         }
       }
     }
@@ -396,12 +423,14 @@ const formatVariation = (wooVariation) => {
     image: [wooVariation.image],
     stockStores: stockStores ? tempStores : null,
     attributes:
-      wooVariation.attributes && wooVariation.attributes.nodes ? wooVariation.attributes.nodes : [],
-  };
-};
+      wooVariation.attributes && wooVariation.attributes.nodes
+        ? wooVariation.attributes.nodes
+        : [],
+  }
+}
 
 export const formatProduct = (wooProduct) => {
-  const { price, salePrice, regularPrice } = parseWooPrice(wooProduct);
+  const { price, salePrice, regularPrice } = parseWooPrice(wooProduct)
 
   const images =
     wooProduct.galleryImages && wooProduct.galleryImages.nodes
@@ -409,12 +438,12 @@ export const formatProduct = (wooProduct) => {
           wooProduct.image.sourceUrl,
           ...wooProduct.galleryImages.nodes.map(({ sourceUrl }) => sourceUrl),
         ]
-      : [wooProduct.image.sourceUrl];
+      : [wooProduct.image.sourceUrl]
 
   const discount =
     wooProduct.onSale && salePrice && regularPrice
       ? Math.round(((regularPrice - salePrice) * 100) / regularPrice)
-      : 0;
+      : 0
 
   const attributes =
     wooProduct.attributes && wooProduct.attributes.nodes
@@ -423,39 +452,50 @@ export const formatProduct = (wooProduct) => {
           .map(({ name, options }) => ({
             name,
             options: options.map((x) =>
-              attributesMap[name] ? findNameFromSlug(attributesMap[name].slug, x) : x,
+              attributesMap[name]
+                ? findNameFromSlug(attributesMap[name].slug, x)
+                : x
             ),
           }))
-      : [];
+      : []
 
   const variations =
     wooProduct.variations && wooProduct.variations.nodes
       ? wooProduct.variations.nodes.map(formatVariation)
-      : [];
+      : []
 
   const categories =
     wooProduct.productCategories && wooProduct.productCategories.nodes
       ? wooProduct.productCategories.nodes
-      : [];
+      : []
 
   const relatedProducts =
     wooProduct.related && wooProduct.related.nodes
       ? wooProduct.related.nodes.map(formatProduct)
-      : [];
+      : []
 
-  const meta = formatMeta(wooProduct.metaData);
+  const meta = formatMeta(wooProduct.metaData)
 
-  const tempStores = [];
-  let stockStores = meta._billz_wp_sync_offices ? JSON.parse(meta._billz_wp_sync_offices) : null;
+  const tempStores = []
+  let stockStores = meta._billz_wp_sync_offices
+    ? JSON.parse(meta._billz_wp_sync_offices)
+    : null
 
-  if (stockStores && stockStores != null && typeof stockStores[Symbol.iterator] === 'function') {
+  if (
+    stockStores &&
+    stockStores != null &&
+    typeof stockStores[Symbol.iterator] === 'function'
+  ) {
     for (const store of stockStores) {
       if (tempStores.find((x) => x.officeID === store.officeID) == null) {
-        const hasStore = tempStores.find((x) => x.officeID === 867);
-        const hasHelen = tempStores.find((x) => x.officeID === 1889);
+        const hasStore = tempStores.find((x) => x.officeID === 867)
+        const hasHelen = tempStores.find((x) => x.officeID === 1889)
 
-        if ((!hasStore && store.officeID !== 1889) || (!hasHelen && store.officeID !== 867)) {
-          tempStores.push(store);
+        if (
+          (!hasStore && store.officeID !== 1889) ||
+          (!hasHelen && store.officeID !== 867)
+        ) {
+          tempStores.push(store)
         }
       }
     }
@@ -485,19 +525,26 @@ export const formatProduct = (wooProduct) => {
     topVariations: [],
     type: wooProduct.type || null,
     stockStores: stockStores ? tempStores : null,
-  };
-};
+  }
+}
 
-export const addZero = (number) => (String(number).length === 1 ? `0${number}` : number);
+export const addZero = (number) =>
+  String(number).length === 1 ? `0${number}` : number
 
-export const formatDateTime = (date, template = '{day}.{month}.{year} {hours}:{minutes}') => {
-  const dateString = (date ? new Date(date) : new Date()).toLocaleString('en-US', {
-    hour12: false,
-  });
+export const formatDateTime = (
+  date,
+  template = '{day}.{month}.{year} {hours}:{minutes}'
+) => {
+  const dateString = (date ? new Date(date) : new Date()).toLocaleString(
+    'en-US',
+    {
+      hour12: false,
+    }
+  )
 
-  const [_date, _time] = dateString.split(', ');
-  const [month, day, year] = _date.split('/');
-  const [hours, minutes, seconds] = _time.split(':');
+  const [_date, _time] = dateString.split(', ')
+  const [month, day, year] = _date.split('/')
+  const [hours, minutes, seconds] = _time.split(':')
 
   return format(template, {
     year,
@@ -506,8 +553,8 @@ export const formatDateTime = (date, template = '{day}.{month}.{year} {hours}:{m
     hours: addZero(hours),
     minutes: addZero(minutes),
     seconds: addZero(seconds),
-  });
-};
+  })
+}
 
 export const formatPost = (wooPost) => {
   return {
@@ -515,29 +562,32 @@ export const formatPost = (wooPost) => {
     date: formatDateTime(wooPost.date, '{day}.{month}.{year}'),
     rawDate: formatDateTime(wooPost.date, '{year}-{month}-{day}'),
     content: wooPost.content.replace(/^\n|\n$/g, ''),
-    short: `${striptags(wooPost.content.replace(/^\n|\n$/g, '').slice(0, 155))}...`,
-  };
-};
+    short: `${striptags(
+      wooPost.content.replace(/^\n|\n$/g, '').slice(0, 155)
+    )}...`,
+  }
+}
 
-export const capitalize = (string) => string[0].toUpperCase() + string.slice(1);
+export const capitalize = (string) =>
+  string && string[0]?.toUpperCase() + string.slice(1)
 
 export const findNameFromSlug = (key, slug) => {
-  const staticData = new StaticDataSingleton().getInstance();
+  const staticData = new StaticDataSingleton().getInstance()
 
   if (staticData.attributes.attributeTranslations[key] == null) {
-    return slug;
+    return slug
   }
 
   const option = staticData.attributes.attributeTranslations[key].find(
-    (option) => option.slug === slug,
-  );
+    (option) => option.slug === slug
+  )
 
   if (option) {
-    return option.name;
+    return option.name
   }
 
-  return slug;
-};
+  return slug
+}
 
 export const attributesMap = {
   pa_color: {
@@ -604,7 +654,7 @@ export const attributesMap = {
     name: 'Вид носочной части',
     slug: 'paViewOfTheSockets',
   },
-};
+}
 
 const colors = {
   bezhevyj: '',
@@ -635,4 +685,4 @@ const colors = {
   fioletovyj: '',
   fuksiya: '',
   chernyj: '',
-};
+}

@@ -1,11 +1,10 @@
-import gql from 'graphql-tag';
+import gql from 'graphql-tag'
 
-import { ProductCategoriesFragment } from '../fragments/categories';
 import {
   _Product,
   _SimpleProduct,
   _VariableProduct,
-} from '../fragments/products';
+} from '../fragments/products'
 
 export const DATA_FOR_MAIN = gql`
   query {
@@ -28,12 +27,16 @@ export const DATA_FOR_MAIN = gql`
     }
 
     saleProducts: products(
-      first: 4,
+      first: 4
       where: {
-        status: "publish",
-        stockStatus: IN_STOCK,
-        onSale: true,
-        taxonomyFilter: {and: {taxonomy: PASEASON, terms: ["SS2021", "SS2020"]}}}) {
+        status: "publish"
+        stockStatus: IN_STOCK
+        onSale: true
+        taxonomyFilter: {
+          and: { taxonomy: PASEASON, terms: ["SS2021", "SS2020"] }
+        }
+      }
+    ) {
       nodes {
         ..._Product
         status
@@ -99,4 +102,4 @@ export const DATA_FOR_MAIN = gql`
   ${_Product}
   ${_SimpleProduct}
   ${_VariableProduct}
-`;
+`

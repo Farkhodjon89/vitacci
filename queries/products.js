@@ -1,11 +1,10 @@
-import gql from 'graphql-tag';
+import gql from 'graphql-tag'
 
-import { ProductCategoriesFragment } from '../fragments/categories';
 import {
   _Product,
   _SimpleProduct,
   _VariableProduct,
-} from '../fragments/products';
+} from '../fragments/products'
 
 export const PRODUCT_BY_SLUG_QUERY = gql`
   query Product($id: ID!) {
@@ -51,7 +50,7 @@ export const PRODUCT_BY_SLUG_QUERY = gql`
   ${_Product}
   ${_SimpleProduct}
   ${_VariableProduct}
-`;
+`
 
 export const PRODUCT_BY_TOP_VARIATION_QUERY = gql`
   query ProductsByTopVariation($topVariation: [String]) {
@@ -116,7 +115,7 @@ export const PRODUCT_BY_TOP_VARIATION_QUERY = gql`
   ${_Product}
   ${_SimpleProduct}
   ${_VariableProduct}
-`;
+`
 
 export const SEARCH_PRODUCTS = gql`
   query ProductsForCatalog($first: Int, $search: String) {
@@ -154,4 +153,4 @@ export const SEARCH_PRODUCTS = gql`
   ${_Product}
   ${_SimpleProduct}
   ${_VariableProduct}
-`;
+`

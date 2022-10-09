@@ -1,6 +1,4 @@
-import gql from 'graphql-tag';
-
-import { ProductCategoriesFragment } from '../fragments/categories';
+import gql from 'graphql-tag'
 
 const PAGE_BY_ID = gql`
   query Page($id: ID!) {
@@ -9,6 +7,6 @@ const PAGE_BY_ID = gql`
       content
     }
   }
-`;
+`
 
-export default PAGE_BY_ID;
+export default PAGE_BY_ID

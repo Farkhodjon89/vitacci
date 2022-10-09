@@ -1,6 +1,4 @@
-import gql from 'graphql-tag';
-
-import { ProductCategoriesFragment } from '../fragments/categories';
+import gql from 'graphql-tag'
 
 export const DATA_FOR_POSTS = gql`
   query PostsAndCategories {
@@ -22,7 +20,7 @@ export const DATA_FOR_POSTS = gql`
       }
     }
   }
-`;
+`
 
 export const POSTS = gql`
   query Posts($first: Int, $after: String) {
@@ -44,7 +42,7 @@ export const POSTS = gql`
       }
     }
   }
-`;
+`
 
 export const POST_BY_ID = gql`
   query PostAndCategories($id: ID!) {
@@ -60,4 +58,4 @@ export const POST_BY_ID = gql`
       }
     }
   }
-`;
+`
