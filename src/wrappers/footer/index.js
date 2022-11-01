@@ -180,7 +180,7 @@ const Footer = ({
       <div className="text-center">
         E-commerce решение от
         <strong>
-          <a className="ml-1" href="https://billz.uz/e-market" rel="nofollow">
+          <a className="ml-1" href="https://billz.io" rel="nofollow">
             <img src={`${process.env.PUBLIC_URL}/by_billz.svg`} alt="" />
           </a>
         </strong>
