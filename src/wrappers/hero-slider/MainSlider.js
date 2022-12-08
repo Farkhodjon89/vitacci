@@ -72,7 +72,7 @@ const MainSlider = () => {
     {
       id: 'first-image',
       mobileImage: `${process.env.PUBLIC_URL}/banners/mob1.jpg`,
-      url: '/catalog',
+      url: '/catalog?filter_onSale=true',
       color: 'white',
       title: '',
       subtitle: '',
