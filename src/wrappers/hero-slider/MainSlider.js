@@ -13,7 +13,6 @@ const MainSlider = () => {
     return () => window.removeEventListener('resize', resizeWindow)
   }, [])
 
-  console.log(windowWidth, 'windowWidth')
   const params = {
     effect: 'fade',
     loop: true,
@@ -41,8 +40,8 @@ const MainSlider = () => {
 
   const sliderData = [
     {
-      id: 'frist-image',
-      image: `${process.env.PUBLIC_URL}/banners/new.jpg`,
+      id: 'first-image',
+      image: `${process.env.PUBLIC_URL}/banners/desk1.jpg`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -51,6 +50,15 @@ const MainSlider = () => {
     },
     {
       id: 'second-image',
+      image: `${process.env.PUBLIC_URL}/banners/new.jpg`,
+      url: '/catalog',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    },
+    {
+      id: 'third-image',
       image: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay.jpg`,
       url: '/installment',
       color: 'white',
@@ -62,8 +70,8 @@ const MainSlider = () => {
 
   const sliderDataMobile = [
     {
-      id: 'frist-image',
-      mobileImage: `${process.env.PUBLIC_URL}/banners/newMob.jpg`,
+      id: 'first-image',
+      mobileImage: `${process.env.PUBLIC_URL}/banners/mob1.jpg`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -72,6 +80,15 @@ const MainSlider = () => {
     },
     {
       id: 'second-image',
+      mobileImage: `${process.env.PUBLIC_URL}/banners/newMob.jpg`,
+      url: '/catalog',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    },
+    {
+      id: 'third-image',
       mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay-mob.jpg`,
       url: '/installment',
       color: 'white',
