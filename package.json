@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "vitacci",
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev",
     "build": "npm run build-fragment && next build",
     "build-fragment": "node schemaQuery.js",
     "start": "next start"
@@ -27,6 +27,7 @@
     "apollo-link-http": "^1.5.15",
     "axios": "^0.19.0",
     "bootstrap": "4.4.1",
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "graphql": "^14.4.2",
     "graphql-tag": "^2.10.1",

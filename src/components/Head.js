@@ -11,7 +11,6 @@ export const HeadData = ({
   pageData,
   product,
 }) => {
-  
   let _pageUrl = (pageUrl || '').split('/')
 
   if (_pageUrl.length > 2) {
@@ -47,17 +46,16 @@ export const HeadData = ({
     (META_DATA_FOR_PAGES[_pageUrl] &&
       formatText(META_DATA_FOR_PAGES[_pageUrl], 'description')) ||
     defaultDescription
-  
-  const pixelProductData =
-    product
-      ? {
-          content_ids: String(product.id),
-          content_type: 'product',
-          value: parseInt(product.price || 0),
-          currency: 'UZS',
-        }
-      : null
-        
+
+  const pixelProductData = product
+    ? {
+        content_ids: String(product.id),
+        content_type: 'product',
+        value: parseInt(product.price || 0),
+        currency: 'UZS',
+      }
+    : null
+
   const productRichSnippets =
     _pageUrl === '/product/'
       ? {
@@ -123,7 +121,7 @@ export const HeadData = ({
             name: 'Vitacci',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://vitacci.uz/logo.png',
+              url: 'https://vitacci.uz/new-logo.png',
             },
           },
           datePublished: pageData.date,
@@ -141,7 +139,7 @@ export const HeadData = ({
             {
               url: product
                 ? product.image[0]
-                : `${process.env.PUBLIC_URL}/logo.png`,
+                : `${process.env.PUBLIC_URL}/new-logo.png`,
             },
           ],
           url: 'https://vitacci.uz',
@@ -176,10 +174,24 @@ export const HeadData = ({
           href={`${process.env.PUBLIC_URL}/favicon-16x16.png`}
         /> */}
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link
+          rel='apple-touch-icon'
+          sizes='180x180'
+          href='/apple-touch-icon.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/favicon-32x32.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='16x16'
+          href='/favicon-16x16.png'
+        />
+        <link rel='manifest' href='/site.webmanifest' />
 
         <Fragment>
           <script
@@ -197,7 +209,7 @@ export const HeadData = ({
               "addressRegion": "",
               "postalCode": "100017"
             },
-              "image": "https://vitacci.uz/logo.png",
+              "image": "https://vitacci.uz/new-logo.png",
               "email": "info@vitacci.uz",
               "telePhone": "+998909256000",
               "url": "https://vitacci.uz/",
