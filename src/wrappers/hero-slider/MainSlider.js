@@ -41,7 +41,7 @@ const MainSlider = () => {
   const sliderData = [
     {
       id: 'first-image',
-      image: `${process.env.PUBLIC_URL}/banners/desk5.jpg`,
+      image: `${process.env.PUBLIC_URL}/banners/desk6.jpg`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -71,7 +71,7 @@ const MainSlider = () => {
   const sliderDataMobile = [
     {
       id: 'first-image',
-      mobileImage: `${process.env.PUBLIC_URL}/banners/mob5.jpg`,
+      mobileImage: `${process.env.PUBLIC_URL}/banners/mob6.jpg`,
       url: '/catalog?filter_onSale=true',
       color: 'white',
       title: '',
