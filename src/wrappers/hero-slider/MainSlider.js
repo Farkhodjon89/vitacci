@@ -50,8 +50,8 @@ const MainSlider = () => {
     },
     {
       id: "second-image",
-      image: `${process.env.PUBLIC_URL}/banners/new.jpg`,
-      url: "/catalog",
+      image: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay.jpg`,
+      url: "/installment",
       color: "white",
       title: "",
       subtitle: "",
@@ -59,8 +59,8 @@ const MainSlider = () => {
     },
     {
       id: "third-image",
-      image: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay.jpg`,
-      url: "/installment",
+      image: `${process.env.PUBLIC_URL}/banners/banner.jpg`,
+      url: "/catalog",
       color: "white",
       title: "",
       subtitle: "",
@@ -80,8 +80,8 @@ const MainSlider = () => {
     },
     {
       id: "second-image",
-      mobileImage: `${process.env.PUBLIC_URL}/banners/newMob.jpg`,
-      url: "/catalog",
+      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay-mob.jpg`,
+      url: "/installment",
       color: "white",
       title: "",
       subtitle: "",
@@ -89,8 +89,8 @@ const MainSlider = () => {
     },
     {
       id: "third-image",
-      mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay-mob.jpg`,
-      url: "/installment",
+      mobileImage: `${process.env.PUBLIC_URL}/banners/banner-mob.jpg`,
+      url: "/catalog",
       color: "white",
       title: "",
       subtitle: "",
