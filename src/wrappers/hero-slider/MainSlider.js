@@ -57,15 +57,6 @@ const MainSlider = () => {
       subtitle: "",
       buttonTitle: "Подробнее",
     },
-    {
-      id: "third-image",
-      image: `${process.env.PUBLIC_URL}/banners/banner.jpg`,
-      url: "/catalog",
-      color: "white",
-      title: "",
-      subtitle: "",
-      buttonTitle: "Подробнее",
-    },
   ];
 
   const sliderDataMobile = [
@@ -82,15 +73,6 @@ const MainSlider = () => {
       id: "second-image",
       mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay-mob.jpg`,
       url: "/installment",
-      color: "white",
-      title: "",
-      subtitle: "",
-      buttonTitle: "Подробнее",
-    },
-    {
-      id: "third-image",
-      mobileImage: `${process.env.PUBLIC_URL}/banners/banner-mob.jpg`,
-      url: "/catalog",
       color: "white",
       title: "",
       subtitle: "",
