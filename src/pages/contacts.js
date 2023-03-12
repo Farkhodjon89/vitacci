@@ -92,7 +92,7 @@ const Contacts = ({ categories }) => {
                         </p>
                         <div className='w-100'>
                           <iframe
-                            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.2103861096143!2d69.24394741257852!3d41.30428657119093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8bf3870c714d%3A0x6ddece20c220333b!2sMagic%20City%20Park!5e0!3m2!1sen!2s!4v1678601637758!5m2!1sen!2s'
+                            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.2103861096143!2d69.24394741257852!3d41.30428657119093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8bf3870c714d%3A0x6ddece20c220333b!2sMagic%20City%20Park!5e0!3m2!1sen!2s!4v1678602122922!5m2!1sen!2s'
                             width='100%'
                             height='450'
                             frameBorder='0'
