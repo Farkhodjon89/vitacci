@@ -51,7 +51,9 @@ class Layout extends React.Component {
           layout={headerContainerClass}
           top={headerTop}
           headerPaddingClass={headerPaddingClass}
-          categories={categories}
+          categories={categories?.filter(
+            (item) => item?.slug === 'muzhskoj' || item?.slug === 'zhenskij'
+          )}
         />
         {children}
         <Footer
