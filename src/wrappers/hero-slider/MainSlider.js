@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import Swiper from "react-id-swiper";
-import MainSliderSingle from "./MainSliderSingle";
-import NoSsr from "../../components/NoSsr";
-import MainSliderMobileSingle from "./MainSliderMobileSingle";
+import React, { useEffect, useState } from 'react'
+import Swiper from 'react-id-swiper'
+import MainSliderSingle from './MainSliderSingle'
+import NoSsr from '../../components/NoSsr'
+import MainSliderMobileSingle from './MainSliderMobileSingle'
 
 const MainSlider = () => {
-  const [windowWidth, setWindowWidth] = useState();
+  const [windowWidth, setWindowWidth] = useState()
   useEffect(() => {
-    const resizeWindow = () => setWindowWidth(window.innerWidth);
-    resizeWindow();
-    window.addEventListener("resize", resizeWindow);
-    return () => window.removeEventListener("resize", resizeWindow);
-  }, []);
+    const resizeWindow = () => setWindowWidth(window.innerWidth)
+    resizeWindow()
+    window.addEventListener('resize', resizeWindow)
+    return () => window.removeEventListener('resize', resizeWindow)
+  }, [])
 
   const params = {
-    effect: "fade",
+    effect: 'fade',
     loop: true,
     speed: 1000,
     autoplay: {
@@ -23,66 +23,66 @@ const MainSlider = () => {
     },
     watchSlidesVisibility: true,
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
     renderPrevButton: () => (
-      <button className="swiper-button-prev ht-swiper-button-nav">
-        <i className="pe-7s-angle-left" />
+      <button className='swiper-button-prev ht-swiper-button-nav'>
+        <i className='pe-7s-angle-left' />
       </button>
     ),
     renderNextButton: () => (
-      <button className="swiper-button-next ht-swiper-button-nav">
-        <i className="pe-7s-angle-right" />
+      <button className='swiper-button-next ht-swiper-button-nav'>
+        <i className='pe-7s-angle-right' />
       </button>
     ),
-  };
+  }
 
   const sliderData = [
     {
-      id: "first-image",
-      image: `${process.env.PUBLIC_URL}/banners/spring.jpg`,
-      url: "/catalog",
-      color: "white",
-      title: "",
-      subtitle: "",
-      buttonTitle: "Подробнее",
+      id: 'first-image',
+      image: `${process.env.PUBLIC_URL}/banners/summer.jpg`,
+      url: '/catalog',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
     },
     {
-      id: "second-image",
+      id: 'second-image',
       image: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay.jpg`,
-      url: "/installment",
-      color: "white",
-      title: "",
-      subtitle: "",
-      buttonTitle: "Подробнее",
+      url: '/installment',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
     },
-  ];
+  ]
 
   const sliderDataMobile = [
     {
-      id: "first-image",
-      mobileImage: `${process.env.PUBLIC_URL}/banners/spring_mob.jpg`,
-      url: "/catalog?filter_onSale=true",
-      color: "white",
-      title: "",
-      subtitle: "",
-      buttonTitle: "Подробнее",
+      id: 'first-image',
+      mobileImage: `${process.env.PUBLIC_URL}/banners/summer_mob.jpg`,
+      url: '/catalog?filter_onSale=true',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
     },
     {
-      id: "second-image",
+      id: 'second-image',
       mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay-mob.jpg`,
-      url: "/installment",
-      color: "white",
-      title: "",
-      subtitle: "",
-      buttonTitle: "Подробнее",
+      url: '/installment',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
     },
-  ];
+  ]
 
   return (
-    <div className="slider-area">
-      <div className="slider-active nav-style-1">
+    <div className='slider-area'>
+      <div className='slider-active nav-style-1'>
         <NoSsr>
           {windowWidth <= 770 ? (
             <Swiper {...params}>
@@ -91,7 +91,7 @@ const MainSlider = () => {
                   key={idx}
                   data={data}
                   backgroundImage={data.mobileImage}
-                  sliderClass="swiper-slide"
+                  sliderClass='swiper-slide'
                 />
               ))}
             </Swiper>
@@ -102,7 +102,7 @@ const MainSlider = () => {
                   key={idx}
                   data={data}
                   backgroundImage={data.image}
-                  sliderClass="swiper-slide"
+                  sliderClass='swiper-slide'
                 />
               ))}
             </Swiper>
@@ -110,7 +110,7 @@ const MainSlider = () => {
         </NoSsr>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MainSlider;
+export default MainSlider
