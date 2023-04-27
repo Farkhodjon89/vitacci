@@ -50,6 +50,15 @@ const MainSlider = () => {
     },
     {
       id: 'second-image',
+      image: `${process.env.PUBLIC_URL}/banners/spring.jpg`,
+      url: '/catalog',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    },
+    {
+      id: 'third-image',
       image: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay.jpg`,
       url: '/installment',
       color: 'white',
