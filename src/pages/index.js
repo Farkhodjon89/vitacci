@@ -26,17 +26,17 @@ const Home = ({ products, saleProducts, categories, posts }) => {
       title: 'АКЦИИ',
     },
     {
-      url: '/catalog/obuv',
+      url: '/catalog/obuv-zhenskij',
       image: `${process.env.PUBLIC_URL}/banners/new_arrivals_4.jpg`,
       title: 'БОСОНОЖКИ',
     },
     {
-      url: '/catalog/obuv',
+      url: '/catalog/obuv-zhenskij',
       image: `${process.env.PUBLIC_URL}/banners/new_arrivals_2.jpg`,
       title: 'ТУФЛИ',
     },
     {
-      url: '/catalog/sumki',
+      url: '/catalog/sumki-zhenskij',
       image: `${process.env.PUBLIC_URL}/banners/new_arrivals_3.jpg`,
       title: 'СУМКИ',
     },
