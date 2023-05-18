@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { animateScroll } from 'react-scroll';
-import FooterCopyright from '../../components/footer/FooterCopyright';
+import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { animateScroll } from 'react-scroll'
+import FooterCopyright from '../../components/footer/FooterCopyright'
 
 const Footer = ({
   backgroundColorClass,
@@ -12,24 +12,24 @@ const Footer = ({
   extraFooterClass,
   sideMenu,
 }) => {
-  const [scroll, setScroll] = useState(0);
-  const [top, setTop] = useState(0);
+  const [scroll, setScroll] = useState(0)
+  const [top, setTop] = useState(0)
 
   useEffect(() => {
-    setTop(100);
-    window.addEventListener('scroll', handleScroll);
+    setTop(100)
+    window.addEventListener('scroll', handleScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const scrollToTop = () => {
-    animateScroll.scrollToTop();
-  };
+    animateScroll.scrollToTop()
+  }
 
   const handleScroll = () => {
-    setScroll(window.scrollY);
-  };
+    setScroll(window.scrollY)
+  }
 
   return (
     <footer
@@ -40,7 +40,7 @@ const Footer = ({
       } ${extraFooterClass ? extraFooterClass : ''}`}
     >
       <div className={`${containerClass ? containerClass : 'container'}`}>
-        <div className="row">
+        <div className='row'>
           <div
             className={`${
               sideMenu ? 'col-xl-2 col-sm-4' : 'col-lg-2 col-sm-4'
@@ -49,7 +49,7 @@ const Footer = ({
             {/* footer copyright */}
             <FooterCopyright
               footerLogo={`${process.env.PUBLIC_URL}/new-logo.png`}
-              spaceBottomClass="mb-30"
+              spaceBottomClass='mb-30'
             />
           </div>
           <div
@@ -57,11 +57,11 @@ const Footer = ({
               sideMenu ? 'col-xl-3 col-sm-4' : 'col-lg-3 col-sm-4'
             }`}
           >
-            <div className="footer-widget mb-30">
-              <div className="footer-title">
+            <div className='footer-widget mb-30'>
+              <div className='footer-title'>
                 <h3>О НАС</h3>
               </div>
-              <div className="footer-list">
+              <div className='footer-list'>
                 <ul>
                   <li>
                     <Link href={'/about'}>О нас</Link>
@@ -86,10 +86,10 @@ const Footer = ({
                 sideMenu ? 'footer-widget mb-30' : 'footer-widget mb-30'
               }`}
             >
-              <div className="footer-title">
+              <div className='footer-title'>
                 <h3>Полезные ссылки</h3>
               </div>
-              <div className="footer-list">
+              <div className='footer-list'>
                 <ul>
                   <li>
                     <Link href={'/policy'}>Политика конфиденциальности</Link>
@@ -117,51 +117,51 @@ const Footer = ({
                 sideMenu ? 'footer-widget mb-30' : 'footer-widget mb-30'
               }`}
             >
-              <div className="footer-title">
+              <div className='footer-title'>
                 <h3>Мы в социальных сетях</h3>
               </div>
-              <div className="footer-list">
+              <div className='footer-list'>
                 <ul>
                   <li>
                     <a
-                      href="https://www.facebook.com/vitacciuz"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.facebook.com/vitacciuz'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
-                      <i className="fab fa-facebook-square mr-1" />
+                      <i className='fab fa-facebook-square mr-1' />
                       Facebook
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://www.instagram.com/vitacci.uz/?igshid=1a7ahw8dpp7bv"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.instagram.com/vitacci.uz/?igshid=1a7ahw8dpp7bv'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
-                      <i className="fab fa-instagram mr-1" />
+                      <i className='fab fa-instagram mr-1' />
                       Instagram
                     </a>
                   </li>
                   <li>
                     <a
-                      href="http://t.me/VITACCIuz_bot"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://t.me/vitacciuz'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
-                      <i className="fab fa-telegram mr-1" />
+                      <i className='fab fa-telegram mr-1' />
                       Telegram
                     </a>
                   </li>
-                  <li className="payment-method">
-                    <p className="mb-1">Мы принимаем:</p>
+                  <li className='payment-method'>
+                    <p className='mb-1'>Мы принимаем:</p>
                     <img
                       src={`${process.env.PUBLIC_URL}/payme.svg`}
-                      alt="PayMe"
+                      alt='PayMe'
                     />
                     <img
-                      className="ml-2"
+                      className='ml-2'
                       src={`${process.env.PUBLIC_URL}/click.png`}
-                      alt="Click"
+                      alt='Click'
                     />
                   </li>
                 </ul>
@@ -174,20 +174,25 @@ const Footer = ({
         className={`scroll-top ${scroll > top ? 'show' : ''}`}
         onClick={() => scrollToTop()}
       >
-        <i className="fa fa-angle-double-up" />
+        <i className='fa fa-angle-double-up' />
       </button>
 
-      <div className="text-center">
+      <div className='text-center'>
         Сайт разработан компанией
         <strong>
-          <a className="ml-1" href='https://billz.io/online-store' target="_blank" rel="nofollow, noreferrer">
-            <img src={`${process.env.PUBLIC_URL}/by_billz.svg`} alt="" />
+          <a
+            className='ml-1'
+            href='https://billz.io/online-store'
+            target='_blank'
+            rel='nofollow, noreferrer'
+          >
+            <img src={`${process.env.PUBLIC_URL}/by_billz.svg`} alt='' />
           </a>
         </strong>
       </div>
     </footer>
-  );
-};
+  )
+}
 
 Footer.propTypes = {
   backgroundColorClass: PropTypes.string,
@@ -196,6 +201,6 @@ Footer.propTypes = {
   sideMenu: PropTypes.bool,
   spaceBottomClass: PropTypes.string,
   spaceTopClass: PropTypes.string,
-};
+}
 
-export default Footer;
+export default Footer
