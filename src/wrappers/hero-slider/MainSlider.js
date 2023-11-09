@@ -50,7 +50,16 @@ const MainSlider = () => {
     },
     {
       id: 'second-image',
-      image: `${process.env.PUBLIC_URL}/banners/spring.jpg`,
+      image: `${process.env.PUBLIC_URL}/banners/new-collection.jpeg`,
+      url: '/catalog',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    },
+    {
+      id: 'image',
+      image: `${process.env.PUBLIC_URL}/banners/discount.jpeg`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -71,7 +80,7 @@ const MainSlider = () => {
   const sliderDataMobile = [
     {
       id: 'first-image',
-      mobileImage: `${process.env.PUBLIC_URL}/banners/summer_mob.jpg`,
+      mobileImage: `${process.env.PUBLIC_URL}/banners/new-collection-mobile.jpeg`,
       url: '/catalog?filter_onSale=true',
       color: 'white',
       title: '',
@@ -82,6 +91,15 @@ const MainSlider = () => {
       id: 'second-image',
       mobileImage: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay-mob.jpg`,
       url: '/installment',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    },
+    {
+      id: 'third-image',
+      mobileImage: `${process.env.PUBLIC_URL}/banners/discount-mobile.jpeg`,
+      url: '/catalog?filter_onSale=true',
       color: 'white',
       title: '',
       subtitle: '',
