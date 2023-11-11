@@ -22,22 +22,22 @@ const Home = ({ products, saleProducts, categories, posts }) => {
   const newArrivals = [
     {
       url: '/catalog',
-      image: `${process.env.PUBLIC_URL}/banners/new_arrivals_1.jpg`,
+      image: `${process.env.PUBLIC_URL}/banners/discounts.jpg`,
       title: 'АКЦИИ',
     },
     {
       url: '/catalog/obuv-zhenskij',
-      image: `${process.env.PUBLIC_URL}/banners/new_arrivals_4.jpg`,
+      image: `${process.env.PUBLIC_URL}/banners/sandals.jpg`,
       title: 'БОСОНОЖКИ',
     },
     {
       url: '/catalog/obuv-zhenskij',
-      image: `${process.env.PUBLIC_URL}/banners/new_arrivals_2.jpg`,
+      image: `${process.env.PUBLIC_URL}/banners/shoes.JPEG`,
       title: 'ТУФЛИ',
     },
     {
       url: '/catalog/sumki-zhenskij',
-      image: `${process.env.PUBLIC_URL}/banners/new_arrivals_3.jpg`,
+      image: `${process.env.PUBLIC_URL}/banners/bags.jpg`,
       title: 'СУМКИ',
     },
   ]
