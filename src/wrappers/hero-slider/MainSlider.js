@@ -59,7 +59,7 @@ const MainSlider = () => {
     },
     {
       id: 'image',
-      image: `${process.env.PUBLIC_URL}/banners/discount.jpeg`,
+      image: `${process.env.PUBLIC_URL}/banners/30-percent.jpg`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -98,7 +98,7 @@ const MainSlider = () => {
     },
     {
       id: 'third-image',
-      mobileImage: `${process.env.PUBLIC_URL}/banners/discount-mobile.jpeg`,
+      mobileImage: `${process.env.PUBLIC_URL}/banners/30-percent-mob.jpg`,
       url: '/catalog?filter_onSale=true',
       color: 'white',
       title: '',
