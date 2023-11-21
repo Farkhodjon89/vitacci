@@ -8,7 +8,7 @@ const AdsBanner = () => {
         <div className='col-12 col-md-6 pb-4 pb-md-0 square-banner'>
           <img
             className='w-100'
-            src={`${process.env.PUBLIC_URL}/banners/1_square.jpg`}
+            src={`${process.env.PUBLIC_URL}/banners/456.JPG`}
             alt=''
           />
           <div className='url-button'>
@@ -20,7 +20,7 @@ const AdsBanner = () => {
         <div className='col-12 col-md-6 square-banner'>
           <img
             className='w-100'
-            src={`${process.env.PUBLIC_URL}/banners/2_square.jpg`}
+            src={`${process.env.PUBLIC_URL}/banners/457.jpg`}
             alt=''
           />
           <div className='url-button'>
