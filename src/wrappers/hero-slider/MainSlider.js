@@ -59,7 +59,7 @@ const MainSlider = () => {
     },
     {
       id: 'image',
-      image: `${process.env.PUBLIC_URL}/banners/black-friday.jpg`,
+      image: `${process.env.PUBLIC_URL}/banners/black-friday.jpeg`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -68,7 +68,7 @@ const MainSlider = () => {
     },
     {
       id: 'third-image',
-      image: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay.jpg`,
+      image: `${process.env.PUBLIC_URL}/banners/slider2/zoodpay.jpeg`,
       url: '/installment',
       color: 'white',
       title: '',
