@@ -59,14 +59,18 @@ export default async (req, res) => {
     for (let i = 0; i < response.data.line_items.length; i++) {
       const product = response.data.line_items[i]
 
+      const size = product?.meta_data?.find(
+        (el) => el?.key === 'pa_size'
+      )?.display_value
+
+      const color = product?.meta_data?.find(
+        (el) => el?.key === 'pa_color'
+      )?.display_value
       message.push(
         `<b>${i + 1}. ${product.name} [${product.sku}] (${formatPrice(
           product.price
-        )} UZS x${product.quantity})</b> Цвет: ${
-          product?.meta_data?.find((el) => el?.key === 'pa_color')
-            ?.display_value
-        } Размер: ${
-          product?.meta_data?.find((el) => el?.key === 'pa_size')?.display_value
+        )} UZS x${product.quantity})</b> ${color ? `Цвет: ${color}` : ''} ${
+          size ? `Размер: ${size}` : ''
         }`
       )
     }
