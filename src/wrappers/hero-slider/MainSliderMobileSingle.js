@@ -20,19 +20,19 @@ const MainSliderMobileSingle = ({ data, sliderClass, backgroundImage }) => {
               <h1 className='animated' style={{ fontSize: '50px' }}>
                 {data.subtitle}
               </h1>
-              {data.url ? (
-                <div className='slider-btn btn-hover ml-0'>
-                  <Link href={data.url}>
-                    <a
-                      className={`animated ${
-                        data.color === 'white' ? 'inverse-button' : ''
-                      }`}
-                    >
-                      {data.buttonTitle}
-                    </a>
-                  </Link>
-                </div>
-              ) : null}
+              {/*{data.url ? (*/}
+              {/*  <div className='slider-btn btn-hover ml-0'>*/}
+              {/*    <Link href={data.url}>*/}
+              {/*      <a*/}
+              {/*        className={`animated ${*/}
+              {/*          data.color === 'white' ? 'inverse-button' : ''*/}
+              {/*        }`}*/}
+              {/*      >*/}
+              {/*        {data.buttonTitle}*/}
+              {/*      </a>*/}
+              {/*    </Link>*/}
+              {/*  </div>*/}
+              {/*) : null}*/}
             </div>
           </div>
         </div>

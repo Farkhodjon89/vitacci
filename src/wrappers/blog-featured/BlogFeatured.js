@@ -4,7 +4,6 @@ import BlogFeaturedSingle from '../../components/blog-featured/BlogFeaturedSingl
 import SectionTitle from '../../components/section-title/SectionTitle'
 
 const BlogFeatured = ({ spaceTopClass, spaceBottomClass, posts }) => {
-  console.log('posts', posts)
   return (
     <div
       className={`blog-area ${spaceTopClass ? spaceTopClass : ''} ${
