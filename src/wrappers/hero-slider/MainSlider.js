@@ -59,7 +59,7 @@ const MainSlider = () => {
     },
     {
       id: 'second-image',
-      image: `${process.env.PUBLIC_URL}/banners/new-collection.jpeg`,
+      image: `${process.env.PUBLIC_URL}/banners/new-filial.jpeg`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -98,7 +98,7 @@ const MainSlider = () => {
     },
     {
       id: 'first-image',
-      mobileImage: `${process.env.PUBLIC_URL}/banners/new-collection-mobile.jpeg`,
+      mobileImage: `${process.env.PUBLIC_URL}/banners/new-filial-mob.jpeg`,
       url: '/catalog?filter_onSale=true',
       color: 'white',
       title: '',
