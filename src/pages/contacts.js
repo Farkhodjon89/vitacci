@@ -118,16 +118,6 @@ const Contacts = ({ categories }) => {
                         </p>
                         <div className='w-100'>
                           <iframe
-                            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5990.2043741548905!2d69.3507083258373!3d41.350132571077815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef47140cbcd4f%3A0x69c9e6e30a920e30!2sEcobozor!5e0!3m2!1sru!2s!4v1597563523962!5m2!1sru!2s'
-                            width='100%'
-                            height='450'
-                            frameBorder='0'
-                            allowFullScreen=''
-                            aria-hidden='false'
-                            tabIndex='0'
-                            zoom='15'
-                          />
-                          <iframe
                             src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.6637919728896!2d69.24985387608834!3d41.31617710040932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b48a35ed52f%3A0x6d868958ae00961!2sTashkent%20City%20Mall!5e0!3m2!1sen!2s!4v1709483826358!5m2!1sen!2s'
                             width='100%'
                             height='450'
