@@ -40,6 +40,15 @@ const MainSlider = () => {
 
   const sliderData = [
     {
+      id: 'firs',
+      image: `${process.env.PUBLIC_URL}/banners/new-banner.jpeg`,
+      url: '/catalog',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    },
+    {
       id: 'first',
       image: `${process.env.PUBLIC_URL}/banners/left.jpeg`,
       url: '/catalog',
@@ -87,6 +96,15 @@ const MainSlider = () => {
   ]
 
   const sliderDataMobile = [
+    {
+      id: 'fir',
+      mobileImage: `${process.env.PUBLIC_URL}/banners/new-banner-mob.jpeg`,
+      url: '/catalog?filter_onSale=true',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    },
     {
       id: 'first',
       mobileImage: `${process.env.PUBLIC_URL}/banners/left-mob.jpeg`,
