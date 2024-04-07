@@ -31,7 +31,7 @@ const Home = ({ products, saleProducts, categories, posts }) => {
     },
     {
       url: '/catalog/obuv-zhenskij',
-      image: `${process.env.PUBLIC_URL}/banners/shoes.jpeg`,
+      image: `${process.env.PUBLIC_URL}/banners/shoes1.jpeg`,
       title: 'ТУФЛИ',
     },
     {
