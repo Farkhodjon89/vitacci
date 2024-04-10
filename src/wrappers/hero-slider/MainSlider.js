@@ -40,8 +40,8 @@ const MainSlider = () => {
 
   const sliderData = [
     {
-      id: 'firs',
-      image: `${process.env.PUBLIC_URL}/banners/new-banner.jpeg`,
+      id: 'firx',
+      image: `${process.env.PUBLIC_URL}/banners/eid.jpg`,
       url: '/catalog',
       color: 'white',
       title: '',
@@ -97,8 +97,8 @@ const MainSlider = () => {
 
   const sliderDataMobile = [
     {
-      id: 'fir',
-      mobileImage: `${process.env.PUBLIC_URL}/banners/new-banner-mob.jpeg`,
+      id: 'firz',
+      mobileImage: `${process.env.PUBLIC_URL}/banners/eid-mob.jpg`,
       url: '/catalog?filter_onSale=true',
       color: 'white',
       title: '',
