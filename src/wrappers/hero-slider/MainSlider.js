@@ -40,8 +40,8 @@ const MainSlider = () => {
 
   const sliderData = [
     // {
-    //   id: 'firs',
-    //   image: `${process.env.PUBLIC_URL}/banners/new-banner.jpeg`,
+    //   id: 'fira',
+    //   image: `${process.env.PUBLIC_URL}/banners/arif.jpg`,
     //   url: '/catalog',
     //   color: 'white',
     //   title: '',
@@ -97,8 +97,8 @@ const MainSlider = () => {
 
   const sliderDataMobile = [
     // {
-    //   id: 'fir',
-    //   mobileImage: `${process.env.PUBLIC_URL}/banners/new-banner-mob.jpeg`,
+    //   id: 'firo',
+    //   mobileImage: `${process.env.PUBLIC_URL}/banners/airfMob.jpg`,
     //   url: '/catalog?filter_onSale=true',
     //   color: 'white',
     //   title: '',
