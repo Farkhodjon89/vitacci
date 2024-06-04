@@ -61,6 +61,7 @@ export const PRODUCT_BY_TOP_VARIATION_QUERY = gql`
         taxonomyFilter: {
           and: { taxonomy: PATOPVARIATION, terms: $topVariation }
         }
+        orderby: { field: MODIFIED, order: DESC }
       }
     ) {
       nodes {
