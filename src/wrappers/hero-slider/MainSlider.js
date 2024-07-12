@@ -39,15 +39,15 @@ const MainSlider = () => {
   }
 
   const sliderData = [
-    // {
-    //   id: 'fira',
-    //   image: `${process.env.PUBLIC_URL}/banners/arif.jpg`,
-    //   url: '/catalog',
-    //   color: 'white',
-    //   title: '',
-    //   subtitle: '',
-    //   buttonTitle: 'Подробнее',
-    // },
+    {
+      id: 'fira',
+      image: `${process.env.PUBLIC_URL}/banners/tufli.jpeg`,
+      url: '/catalog',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    },
     {
       id: 'first1',
       image: `${process.env.PUBLIC_URL}/banners/one-plus-one.jpeg`,
@@ -105,15 +105,15 @@ const MainSlider = () => {
   ]
 
   const sliderDataMobile = [
-    // {
-    //   id: 'firo',
-    //   mobileImage: `${process.env.PUBLIC_URL}/banners/airfMob.jpg`,
-    //   url: '/catalog?filter_onSale=true',
-    //   color: 'white',
-    //   title: '',
-    //   subtitle: '',
-    //   buttonTitle: 'Подробнее',
-    // },
+    {
+      id: 'firo',
+      mobileImage: `${process.env.PUBLIC_URL}/banners/tufli-mob.jpeg`,
+      url: '/catalog?filter_onSale=true',
+      color: 'white',
+      title: '',
+      subtitle: '',
+      buttonTitle: 'Подробнее',
+    },
     {
       id: 'first1',
       mobileImage: `${process.env.PUBLIC_URL}/banners/one-plus-one-mob.jpeg`,
